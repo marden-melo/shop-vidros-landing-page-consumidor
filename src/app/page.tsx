@@ -455,56 +455,109 @@ export default function Home() {
 
       {/* Footer */}
       <footer
-        className={`py-8 ${
-          isDarkTheme ? "bg-gray-800" : "bg-yellow-400"
-        } text-white`}
+        className={`py-12 ${
+          isDarkTheme
+            ? "bg-gray-800 text-white"
+            : "bg-gradient-to-t from-yellow-400 to-yellow-300 text-gray-900"
+        }`}
       >
-        <div className="container mx-auto px-4 text-center">
-          <p className="mb-2 text-sm md:text-base">
-            Desenvolvido por{" "}
-            <a
-              href="http://www.discode.com.br"
-              target="_blank"
-              className="underline hover:text-yellow-200"
-            >
-              Discode Software House
-            </a>
-          </p>
-          <p className="text-xs md:text-sm">By Marden Melo</p>
-          <div className="mt-4 flex items-center justify-center gap-2">
-            <FaInstagram className="text-yellow-200 hover:text-white text-lg md:text-xl" />
-            <a
-              href="https://instagram.com/shopvidros_"
-              target="_blank"
-              className="text-yellow-200 hover:text-white text-sm md:text-base"
-            >
-              @shopvidros_
-            </a>
-          </div>
-          <div className="mt-4">
-            <p className="text-sm md:text-base">Compre também em:</p>
-            <div className="flex flex-col sm:flex-row justify-center gap-2 md:gap-4 mt-2">
-              {[
-                {
-                  href: "https://www.mercadolivre.com.br/pagina/ecommerce_shopvidros",
-                  text: "Mercado Livre",
-                },
-                {
-                  href: "https://shopee.com.br/shop.vidros?categoryId=100636&entryPoint=ShopByPDP&itemId=20998089717",
-                  text: "Shopee",
-                },
-                { href: "http://www.shopvidros.com", text: "ShopVidros.com" },
-              ].map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  target="_blank"
-                  className="text-yellow-200 hover:text-white text-sm md:text-base"
-                >
-                  {link.text}
-                </a>
-              ))}
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+            {/* Seção Desenvolvedor */}
+            <div className="flex flex-col items-center md:items-start">
+              <p className="text-sm md:text-base font-semibold mb-2">
+                Desenvolvido por
+              </p>
+              <a
+                href="http://www.discode.com.br"
+                target="_blank"
+                className={`${
+                  isDarkTheme
+                    ? "text-yellow-200 hover:text-white"
+                    : "text-gray-900 hover:text-yellow-600"
+                } text-base md:text-lg transition-colors duration-300`}
+              >
+                Discode Software House
+              </a>
+              <p className="text-xs md:text-sm mt-1 opacity-75">
+                By Marden Melo
+              </p>
             </div>
+
+            {/* Seção Instagram */}
+            <div className="flex flex-col items-center md:items-start">
+              <p className="text-sm md:text-base font-semibold mb-2">
+                Siga-nos
+              </p>
+              <div className="flex items-center gap-2">
+                <FaInstagram
+                  className={`${
+                    isDarkTheme
+                      ? "text-yellow-200 hover:text-white"
+                      : "text-gray-900 hover:text-yellow-600"
+                  } text-lg md:text-2xl transition-colors duration-300`}
+                />
+                <a
+                  href="https://instagram.com/shopvidros_"
+                  target="_blank"
+                  className={`${
+                    isDarkTheme
+                      ? "text-yellow-200 hover:text-white"
+                      : "text-gray-900 hover:text-yellow-600"
+                  } text-base md:text-lg transition-colors duration-300`}
+                >
+                  @shopvidros_
+                </a>
+              </div>
+            </div>
+
+            {/* Seção Links de Compra */}
+            <div className="flex flex-col items-center md:items-start">
+              <p className="text-sm md:text-base font-semibold mb-2">
+                Compre também em
+              </p>
+              <div className="flex flex-col items-center md:items-start gap-2">
+                {[
+                  {
+                    href: "https://www.mercadolivre.com.br/pagina/ecommerce_shopvidros",
+                    text: "Mercado Livre",
+                    icon: <FaShoppingCart />,
+                  },
+                  {
+                    href: "https://shopee.com.br/shop.vidros?categoryId=100636&entryPoint=ShopByPDP&itemId=20998089717",
+                    text: "Shopee",
+                    icon: <FaShoppingCart />,
+                  },
+                  {
+                    href: "http://www.shopvidros.com",
+                    text: "ShopVidros.com",
+                    icon: <FaShoppingCart />,
+                  },
+                ].map((link, index) => (
+                  <a
+                    key={index}
+                    href={link.href}
+                    target="_blank"
+                    className={`flex items-center gap-2 ${
+                      isDarkTheme
+                        ? "text-yellow-200 hover:text-white"
+                        : "text-gray-900 hover:text-yellow-600"
+                    } text-base md:text-lg transition-colors duration-300`}
+                  >
+                    {link.icon}
+                    {link.text}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Linha Separadora e Créditos Finais */}
+          <div className="mt-8 pt-8 border-t border-gray-600/30 text-center">
+            <p className="text-xs md:text-sm opacity-75">
+              © {new Date().getFullYear()} Shop Vidros. Todos os direitos
+              reservados.
+            </p>
           </div>
         </div>
       </footer>
