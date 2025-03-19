@@ -26,7 +26,7 @@ export default function Home() {
       {/* Botão de tema fixo */}
       <button
         onClick={toggleTheme}
-        className="fixed top-4 right-4 z-50 p-2 rounded-full bg-yellow-300 hover:bg-yellow-400 text-black shadow-lg transition-all duration-300"
+        className="fixed top-4 right-4 z-50 p-2 rounded-full bg-yellow-300 hover:bg-yellow-400 text-black shadow-lg transition-all duration-300 "
         aria-label="Alternar tema"
       >
         {isDarkTheme ? <FaSun size={24} /> : <FaMoon size={24} />}
